@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(fluidPage(
 
-  headerPanel("Twitter Analysis"),
+  headerPanel("TwitterCloud"),
   
   sidebarPanel( textInput("term", "Enter a term", ""),
                 sliderInput("count", 
@@ -15,11 +15,24 @@ shinyUI(fluidPage(
                                "Spanish"="es"), selected = "en"),
 #                 dateInput("date", "Since :", 
 #                           value = "2013-01-01"),
-                  submitButton(text="Run")
+                  submitButton(text="Run"),
+                    br(), br(),
+                  img(src="twitterbrd.png",height = 75, width = 75),
+                  a("TwitterCloud",href="http://mngujral.wordpress.com"),
+                  "is a sideproject of ",a("mngujral", href="https://in.linkedin.com/in/mngujral")
   ),
   
-  mainPanel(
-    h4("Last few Tweets"),
-    tableOutput("table"),
-    plotOutput("wordcl"))
+  mainPanel( 
+    tabsetPanel(
+      tabPanel("Live Feed",
+               h4("Last few Tweets"),
+               tableOutput("table")
+               ),
+      tabPanel("WordCloud",
+               plotOutput("wordcl")
+               )
+              )
+      
+    )
+    
 ))
