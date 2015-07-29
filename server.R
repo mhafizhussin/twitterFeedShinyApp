@@ -1,8 +1,8 @@
 library(shiny)
 
 library(twitteR)
-library(httr)
-library(wordcloud)
+library(httr)   	#install version 0.6.0; latest version not compatible with twitteR 1.1.8 refer installingHTTRv0.6.0
+library(wordcloud) 
 library(tm)
 source("twitterAppCredentials.R")
 
